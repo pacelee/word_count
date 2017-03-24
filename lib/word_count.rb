@@ -14,12 +14,14 @@ class String
   define_method(:word_anywhere) do |testcase|
     counter = 0
     word = self.length
-    while testcase.length > 0
-      if self == testcase.slice(0, word)
+    dsentence = testcase.downcase
+    dword = self.downcase
+    while dsentence.length > 0
+      if dword == dsentence.slice(0, word)
         counter += 1
-        testcase.slice!(0)
+        dsentence.slice!(0)
       else
-        testcase.slice!(0)
+        dsentence.slice!(0)
       end
     end
     return counter
